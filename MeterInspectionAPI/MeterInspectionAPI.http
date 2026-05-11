@@ -1,0 +1,6 @@
+@MeterInspectionAPI_HostAddress = http://localhost:5012
+
+GET {{MeterInspectionAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
