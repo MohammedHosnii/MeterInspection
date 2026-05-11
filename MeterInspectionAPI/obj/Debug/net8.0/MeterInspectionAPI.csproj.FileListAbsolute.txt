@@ -95,3 +95,4 @@ C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\Sha
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\MeterInspectionDB.pdb
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\Shared.pdb
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\GpiConfig.json
+C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\MeterInspectionAPI.sourcelink.json

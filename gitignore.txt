@@ -1,18 +1,5 @@
-# Visual Studio
 .vs/
 bin/
 obj/
-
-# User-specific files
 *.user
 *.suo
-
-# Rider / VS Code
-.idea/
-.vscode/
-
-# NuGet packages
-packages/
-
-# Logs
-*.log

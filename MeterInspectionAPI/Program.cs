@@ -54,6 +54,22 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    try
+    {
+        var offlineOnline = scope.ServiceProvider
+            .GetRequiredService<OFFline_Online>();
+
+       await offlineOnline.GetConnectionStatusAsync();
+
+         
+    }
+    catch (Exception ex)
+    {
+         
+    }
+}
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI(c =>

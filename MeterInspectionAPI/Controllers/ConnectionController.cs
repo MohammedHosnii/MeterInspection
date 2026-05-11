@@ -17,14 +17,14 @@ namespace MeterInspectionApi.Controllers
         }
 
         [HttpGet("status")]
-        public async Task<IActionResult> GetConnectionStatus()
+        public IActionResult GetConnectionStatus()
         {
             try
             {
                 res = new ApiResponse<string>();
-                var status = await _offlineOnline.GetConnectionStatusAsync();
+                // var status = await _offlineOnline.GetConnectionStatusAsync();
 
-                res.Data = status.ToString();
+                res.Data = Shared.GPI.Status;
                 res.StatusCode = HttpStatusCode.OK;
                 res.Succeeded = true;
 

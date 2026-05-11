@@ -14,3 +14,4 @@ C:\Users\HP\source\repos\MeterInspection\MeterInspectionDB\bin\Debug\net8.0\Shar
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionDB\obj\Debug\net8.0\MeterInspectionDB.csproj.AssemblyReference.cache
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionDB\obj\Debug\net8.0\MeterIns.7B4A0A76.Up2Date
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionDB\bin\Debug\net8.0\GpiConfig.json
+C:\Users\HP\source\repos\MeterInspection\MeterInspectionDB\obj\Debug\net8.0\MeterInspectionDB.sourcelink.json
