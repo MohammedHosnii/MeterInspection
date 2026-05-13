@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using MeterInspectionAPI;
 using MeterInspectionAPI.Models;
 using Microsoft.OpenApi;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -72,6 +73,9 @@ builder.Services.AddSwaggerGen(c =>
         Title = "MeterInspection API",
         Version = "v1"
     });
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 var app = builder.Build();

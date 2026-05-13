@@ -15,6 +15,7 @@ namespace MeterInspectionDB
             services.AddScoped<OFFline_Online>();
             services.AddScoped<CorrectiveActionRepository>();
             services.AddScoped<LabCenterRepository>();
+            services.AddScoped<CompanySectorDeptRepository>();
 
             return services;
         }

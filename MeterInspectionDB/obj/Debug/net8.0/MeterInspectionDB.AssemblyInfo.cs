@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MeterInspectionDB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d407074dbe0e8bbe30be1b0363ad4c486dad872b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82122fd67c7f0d3f504b53daeb165ff8d2560bd8")]
 [assembly: System.Reflection.AssemblyProductAttribute("MeterInspectionDB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MeterInspectionDB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
