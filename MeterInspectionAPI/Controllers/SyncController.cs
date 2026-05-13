@@ -24,10 +24,8 @@ namespace MeterInspectionApi.Controllers
             try
             {
                 res = new ApiResponse<string>();
-                using IDbConnection db =
-                    new SqlConnection(_config.ConnString_Local);
-
-                var repository = new SyncRepository(db);
+              
+                var repository = new SyncRepository(_config);
 
                 await repository.ExecuteSyncAllTablesAsync();
 

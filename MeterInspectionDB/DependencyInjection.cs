@@ -11,8 +11,11 @@ namespace MeterInspectionDB
     {
         public static IServiceCollection AddMeterInspectionDB(this IServiceCollection services)
         {
+            services.AddScoped<SyncRepository>();
+            services.AddScoped<OFFline_Online>();
             services.AddScoped<CorrectiveActionRepository>();
             services.AddScoped<LabCenterRepository>();
+            services.AddScoped<CompanySectorDeptRepository>();
 
             return services;
         }

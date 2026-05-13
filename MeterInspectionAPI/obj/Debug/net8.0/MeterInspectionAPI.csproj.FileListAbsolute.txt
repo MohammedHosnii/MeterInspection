@@ -95,6 +95,7 @@ C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\Sha
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\MeterInspectionDB.pdb
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\Shared.pdb
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\GpiConfig.json
+<<<<<<< HEAD
 E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\appsettings.Development.json
 E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\appsettings.json
 E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\MeterInspectionAPI.staticwebassets.endpoints.json
@@ -195,3 +196,8 @@ E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\refin
 E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\MeterInspectionAPI.pdb
 E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\MeterInspectionAPI.genruntimeconfig.cache
 E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\ref\MeterInspectionAPI.dll
+=======
+C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\MeterInspectionAPI.sourcelink.json
+C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\MeterInspectionAPI.xml
+C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\MeterInspectionAPI.xml
+>>>>>>> ce1026abfd1b947855d2fdcca7490e4123961563

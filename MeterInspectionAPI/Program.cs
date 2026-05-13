@@ -1,48 +1,71 @@
-using Microsoft.OpenApi;
 using Shared;
-using Microsoft.EntityFrameworkCore;
-using MeterInspectionAPI.Models;
 using MeterInspectionDB;
 using System.Data;
 using System.Data.SqlClient;
-
+using MeterInspectionAPI;
+using MeterInspectionAPI.Models;
+using Microsoft.OpenApi;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//var connectionString_Server = GPI.GetConfig().ConnString_Server; //builder.Configuration.GetConnectionString("DefaultConnection");
 
-////var connectionString_Local = GPI.GetConfig().ConnString_Local;
-
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//    options.UseSqlServer(GPI.GetConfig().ConnString_Server));
-
-builder.Services.AddScoped<IDbConnection>(sp =>
-{
-    var config = sp.GetRequiredService<GpiConfig>();
-
-    return new SqlConnection(
-        Shared.GPI.Status == "Server"
-            ? config.ConnString_Server
-            : config.ConnString_Local
-    );
-});
-
+// ===========================
+// Register Config
+// ===========================
 builder.Services.AddSingleton<GpiConfig>(sp =>
 {
     return GPI.GetConfig();
 });
 
+
+// ===========================
+// Register Services
+// ===========================
 builder.Services.AddMeterInspectionDB();
-// Register OFFline_Online
+
 builder.Services.AddScoped<OFFline_Online>();
 
+builder.Services.AddScoped<
+    ConnectionStatusService>();
 
-// Add services to the container.
 
+// ===========================
+// Dynamic DB Connection
+// Decide Server / Local
+// Per Request
+// ===========================
+builder.Services.AddScoped<IDbConnection>(sp =>
+{
+    var config =
+        sp.GetRequiredService<GpiConfig>();
+
+    var connectionStatus =
+        sp.GetRequiredService<
+            ConnectionStatusService>();
+
+    bool isOnline =
+        connectionStatus.IsOnline();
+
+    return new SqlConnection(
+        isOnline
+            ? config.ConnString_Server
+            : config.ConnString_Local
+    );
+});
+
+
+// ===========================
+// Controllers
+// ===========================
 builder.Services.AddControllers();
 
+
+// ===========================
+// Swagger
+// ===========================
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -50,15 +73,28 @@ builder.Services.AddSwaggerGen(c =>
         Title = "MeterInspection API",
         Version = "v1"
     });
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+// ===========================
+// HTTP Pipeline
+// ===========================
+
+// Swagger
 app.UseSwagger();
+
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MeterInspection API V1");
+    c.SwaggerEndpoint(
+        "/swagger/v1/swagger.json",
+        "MeterInspection API V1");
+
+    // Open Swagger مباشرة
     c.RoutePrefix = string.Empty;
 });
 
@@ -67,6 +103,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
 
 app.Run();
