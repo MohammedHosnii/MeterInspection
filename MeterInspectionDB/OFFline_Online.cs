@@ -41,19 +41,50 @@ namespace MeterInspectionDB
             return ConnectionType.Local;
         }
 
+        public async Task<bool> GetConnectionStatus()
+        {
+            var serverTask = Task.Run(() =>
+                CanConnect(_config.ConnString_Server));
+
+            var localTask = Task.Run(() =>
+                CanConnect(_config.ConnString_Local));
+
+            await Task.WhenAll(serverTask, localTask);
+
+            if (!localTask.Result)
+            {
+                return false;
+            }
+
+            if (serverTask.Result)
+            {
+                
+                return true;
+            }
+
+
+            
+            return false;
+        }
+
         private bool CanConnect(string connectionString)
         {
             try
             {
-                var builder = new SqlConnectionStringBuilder(connectionString)
-                {
-                    ConnectTimeout = 2
-                };
+                var builder =
+                    new SqlConnectionStringBuilder(
+                        connectionString)
+                    {
+                        ConnectTimeout = 1
+                    };
 
-                using var conn = new SqlConnection(builder.ConnectionString);
+                using var conn =
+                    new SqlConnection(
+                        builder.ConnectionString);
+
                 conn.Open();
 
-                return conn.State == ConnectionState.Open;
+                return true;
             }
             catch
             {

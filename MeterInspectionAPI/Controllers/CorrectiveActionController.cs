@@ -14,6 +14,7 @@ namespace MeterInspectionAPI.Controllers
     [Route("api/[controller]")]
     public class CorrectiveActionController : ControllerBase
     {
+
         private readonly CorrectiveActionRepository _repo;
         ApiResponse<CorrectiveAction> res;
         public CorrectiveActionController(CorrectiveActionRepository repo)
