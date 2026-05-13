@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MeterInspectionDB;
 using System.Net;
+using MeterInspectionAPI;
 
 namespace MeterInspectionApi.Controllers
 {
@@ -24,7 +25,7 @@ namespace MeterInspectionApi.Controllers
                 res = new ApiResponse<string>();
                 // var status = await _offlineOnline.GetConnectionStatusAsync();
 
-                res.Data = Shared.GPI.Status;
+                res.Data = (AppState.IsOnline)?"Server":"Local";
                 res.StatusCode = HttpStatusCode.OK;
                 res.Succeeded = true;
 
