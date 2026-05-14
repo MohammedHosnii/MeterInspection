@@ -275,8 +275,8 @@
   },
   {
     "ContainingType": "MeterInspectionApi.Controllers.SyncController",
-    "Method": "SyncAll",
-    "RelativePath": "api/Sync/sync-all",
+    "Method": "Sync",
+    "RelativePath": "api/Sync/sync",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

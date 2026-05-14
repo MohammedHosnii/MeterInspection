@@ -4,45 +4,59 @@ using System.Data;
 using Shared;
 using MeterInspectionDB;
 using System.Net;
+using MeterInspectionAPI;
+using MeterInspectionDB.Model;
 
 namespace MeterInspectionApi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class SyncController : ControllerBase
     {
-        private readonly GpiConfig _config;
-        ApiResponse<string> res;
-        public SyncController(GpiConfig config)
+        private readonly SyncRepository
+            _syncRepository;
+
+        private readonly ConnectionStatusService
+            _connectionStatus;
+        
+
+        public SyncController(
+            SyncRepository syncRepository,
+            ConnectionStatusService connectionStatus)
         {
-            _config = config;
+            _syncRepository =
+                syncRepository;
+
+            _connectionStatus =
+                connectionStatus;
         }
 
-        [HttpPost("sync-all")]
-        public async Task<IActionResult> SyncAll()
+        [HttpPost("sync")]
+        public async Task<IActionResult> Sync()
         {
-            try
+            var res = new ApiResponse<String>();
+
+            bool isOnline =
+                _connectionStatus
+                    .IsOnline();
+
+            if (!isOnline)
             {
-                res = new ApiResponse<string>();
-              
-                var repository = new SyncRepository(_config);
-
-                await repository.ExecuteSyncAllTablesAsync();
-
-                res.Data = "قد تم المزامنة بنجاح";
-                res.StatusCode = HttpStatusCode.OK;
-                res.Succeeded = true;
-
-                return Ok(res);
-            }
-            catch (Exception ex)
-            {
-                res.Message = "خطأ في المزامنة";
+                res.Message = "Server is OFFline";
                 res.StatusCode = HttpStatusCode.BadRequest;
                 res.Succeeded = false;
 
                 return BadRequest(res);
             }
+
+            await _syncRepository
+                .ExecuteSyncAllTablesAsync();
+
+            res.Data = "Sync Succeeded";
+            res.StatusCode = HttpStatusCode.OK;
+            res.Succeeded = true;
+
+            return Ok(res);
         }
     }
 }
