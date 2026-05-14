@@ -201,3 +201,5 @@ C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\Met
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\MeterInspectionAPI.xml
 C:\Users\HP\source\repos\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\MeterInspectionAPI.xml
 >>>>>>> ce1026abfd1b947855d2fdcca7490e4123961563
+E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\bin\Debug\net8.0\MeterInspectionAPI.xml
+E:\MeterInspection2026\MeterInspection\MeterInspectionAPI\obj\Debug\net8.0\MeterInspectionAPI.xml
