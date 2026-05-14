@@ -5,6 +5,183 @@
     "version": "v1"
   },
   "paths": {
+    "/api/CompanySectorDept": {
+      "get": {
+        "tags": [
+          "CompanySectorDept"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CompanySectorDept"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanySectorDept"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanySectorDept"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanySectorDept"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CompanySectorDept"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanySectorDept"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanySectorDept"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanySectorDept"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanySectorDept/{id}": {
+      "get": {
+        "tags": [
+          "CompanySectorDept"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CompanySectorDept"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanySectorDept/companies": {
+      "get": {
+        "tags": [
+          "CompanySectorDept"
+        ],
+        "summary": "الشركات",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanySectorDept/sectors/{parentId}": {
+      "get": {
+        "tags": [
+          "CompanySectorDept"
+        ],
+        "summary": "القطاعات",
+        "parameters": [
+          {
+            "name": "parentId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanySectorDept/departments/{parentId}": {
+      "get": {
+        "tags": [
+          "CompanySectorDept"
+        ],
+        "summary": "الفروع",
+        "parameters": [
+          {
+            "name": "parentId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Connection/status": {
       "get": {
         "tags": [
@@ -272,6 +449,33 @@
   },
   "components": {
     "schemas": {
+      "CompanySectorDept": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companySectorDeptCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "companySectorDeptName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companySectorDept_Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CorrectiveAction": {
         "type": "object",
         "properties": {
@@ -307,6 +511,9 @@
     }
   },
   "tags": [
+    {
+      "name": "CompanySectorDept"
+    },
     {
       "name": "Connection"
     },
