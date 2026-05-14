@@ -275,8 +275,8 @@
   },
   {
     "ContainingType": "MeterInspectionApi.Controllers.SyncController",
-    "Method": "SyncAll",
-    "RelativePath": "api/Sync/sync-all",
+    "Method": "Sync",
+    "RelativePath": "api/Sync/sync",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -291,6 +291,80 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeterInspectionAPI.Controllers.TestResultController",
+    "Method": "GetAll",
+    "RelativePath": "api/TestResult",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeterInspectionAPI.Controllers.TestResultController",
+    "Method": "Create",
+    "RelativePath": "api/TestResult",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "MeterInspectionDB.Model.TestResult",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeterInspectionAPI.Controllers.TestResultController",
+    "Method": "Update",
+    "RelativePath": "api/TestResult",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "MeterInspectionDB.Model.TestResult",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeterInspectionAPI.Controllers.TestResultController",
+    "Method": "GetById",
+    "RelativePath": "api/TestResult/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeterInspectionAPI.Controllers.TestResultController",
+    "Method": "Delete",
+    "RelativePath": "api/TestResult/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]
