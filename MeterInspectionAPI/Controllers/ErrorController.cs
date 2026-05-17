@@ -1,20 +1,19 @@
 ﻿using MeterInspectionApi;
-using MeterInspectionDB.Model;
 using MeterInspectionDB;
+using MeterInspectionDB.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace MeterInspectionAPI.Controllers
 {
-    
-
     [ApiController]
     [Route("api/[controller]")]
-    public class MaintenanceRecordController : ControllerBase
+    public class ErrorController : ControllerBase
     {
-        private readonly MaintenanceRecordRepository _repo;
+        private readonly ErrorRepository _repo;
 
-        public MaintenanceRecordController(MaintenanceRecordRepository repo)
+        public ErrorController(ErrorRepository repo)
         {
             _repo = repo;
         }
@@ -22,7 +21,7 @@ namespace MeterInspectionAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var res = new ApiResponse<IEnumerable<MaintenanceRecord>>();
+            var res = new ApiResponse<IEnumerable<Error>>();
 
             try
             {
@@ -47,7 +46,7 @@ namespace MeterInspectionAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var res = new ApiResponse<MaintenanceRecord>();
+            var res = new ApiResponse<Error>();
 
             try
             {
@@ -79,9 +78,9 @@ namespace MeterInspectionAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(MaintenanceRecord model)
+        public async Task<IActionResult> Create(Error model)
         {
-            var res = new ApiResponse<MaintenanceRecord>();
+            var res = new ApiResponse<Error>();
 
             try
             {
@@ -113,9 +112,9 @@ namespace MeterInspectionAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(MaintenanceRecord model)
+        public async Task<IActionResult> Update(Error model)
         {
-            var res = new ApiResponse<MaintenanceRecord>();
+            var res = new ApiResponse<Error>();
 
             try
             {
@@ -130,7 +129,7 @@ namespace MeterInspectionAPI.Controllers
 
                 var result = await _repo.UpdateAsync(model);
 
-                if (result==null)
+                if (result == null)
                 {
                     res.Message = "غير موجود";
                     res.StatusCode = HttpStatusCode.BadRequest;
@@ -156,13 +155,13 @@ namespace MeterInspectionAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id ,int userID)
+        public async Task<IActionResult> Delete(int id)
         {
-            var res = new ApiResponse<MaintenanceRecord>();
+            var res = new ApiResponse<Error>();
 
             try
             {
-                var result = await _repo.DeleteAsync(id, userID);
+                var result = await _repo.DeleteAsync(id);
 
                 if (!result)
                 {

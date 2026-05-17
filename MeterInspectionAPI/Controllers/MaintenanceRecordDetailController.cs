@@ -1,20 +1,19 @@
 ﻿using MeterInspectionApi;
 using MeterInspectionDB.Model;
 using MeterInspectionDB;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace MeterInspectionAPI.Controllers
 {
-    
-
     [ApiController]
     [Route("api/[controller]")]
-    public class MaintenanceRecordController : ControllerBase
+    public class MaintenanceRecordDetailController : ControllerBase
     {
-        private readonly MaintenanceRecordRepository _repo;
+        private readonly MaintenanceRecordDetailRepository _repo;
 
-        public MaintenanceRecordController(MaintenanceRecordRepository repo)
+        public MaintenanceRecordDetailController(MaintenanceRecordDetailRepository repo)
         {
             _repo = repo;
         }
@@ -22,7 +21,7 @@ namespace MeterInspectionAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var res = new ApiResponse<IEnumerable<MaintenanceRecord>>();
+            var res = new ApiResponse<IEnumerable<MaintenanceRecordDetail>>();
 
             try
             {
@@ -47,7 +46,7 @@ namespace MeterInspectionAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var res = new ApiResponse<MaintenanceRecord>();
+            var res = new ApiResponse<MaintenanceRecordDetail>();
 
             try
             {
@@ -78,10 +77,47 @@ namespace MeterInspectionAPI.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(MaintenanceRecord model)
+        /// <summary>
+        /// التفاصيل الخاصة لمحضر معين
+        /// </summary>
+        [HttpGet("ByMaintenanceRecord/{id}")]
+        public async Task<IActionResult> GetByMaintenanceRecordId(int id)
         {
-            var res = new ApiResponse<MaintenanceRecord>();
+            var res = new ApiResponse<MaintenanceRecordDetail>();
+
+            try
+            {
+                var data = await _repo.GetByMaintenanceRecordIdAsync(id);
+
+                if (data == null)
+                {
+                    res.Message = "غير موجود";
+                    res.StatusCode = HttpStatusCode.BadRequest;
+                    res.Succeeded = false;
+
+                    return BadRequest(res);
+                }
+
+                res.Data = data;
+                res.StatusCode = HttpStatusCode.OK;
+                res.Succeeded = true;
+
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                res.Message = ex.Message;
+                res.StatusCode = HttpStatusCode.BadRequest;
+                res.Succeeded = false;
+
+                return BadRequest(res);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(MaintenanceRecordDetail model)
+        {
+            var res = new ApiResponse<MaintenanceRecordDetail>();
 
             try
             {
@@ -113,9 +149,9 @@ namespace MeterInspectionAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(MaintenanceRecord model)
+        public async Task<IActionResult> Update(MaintenanceRecordDetail model)
         {
-            var res = new ApiResponse<MaintenanceRecord>();
+            var res = new ApiResponse<MaintenanceRecordDetail>();
 
             try
             {
@@ -130,7 +166,7 @@ namespace MeterInspectionAPI.Controllers
 
                 var result = await _repo.UpdateAsync(model);
 
-                if (result==null)
+                if (result == null)
                 {
                     res.Message = "غير موجود";
                     res.StatusCode = HttpStatusCode.BadRequest;
@@ -156,13 +192,13 @@ namespace MeterInspectionAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id ,int userID)
+        public async Task<IActionResult> Delete(int id,int DeletedUser)
         {
-            var res = new ApiResponse<MaintenanceRecord>();
+            var res = new ApiResponse<MaintenanceRecordDetail>();
 
             try
             {
-                var result = await _repo.DeleteAsync(id, userID);
+                var result = await _repo.DeleteAsync(id, DeletedUser);
 
                 if (!result)
                 {

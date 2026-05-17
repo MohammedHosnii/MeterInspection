@@ -37,7 +37,11 @@ namespace MeterInspectionDB
         // Add
         public async Task<MaintenanceRecord> AddAsync(MaintenanceRecord model)
         {
-            string sql = @"
+            string MaintenanceRecordCode = String.Concat(
+              DateTime.Now.ToString("yyyyMMddHHmmssfff"),
+              model.UserId.ToString()
+            );
+            string sql = @$"
             INSERT INTO [dbo].[MaintenanceRecord]
             (
                 MaintenanceRecordDate,
@@ -64,13 +68,13 @@ namespace MeterInspectionDB
                 @WorkingMetersCount,
                 @RepairedMetersCount,
                 @RetiredMetersCount,
-                @MaintenanceRecordCode,
+               {MaintenanceRecordCode},
                 @ISSync,
                 @CompanySectorDept_Level,
                 @UserId,
-                @IsDeleted,
-                @DeletedDate,
-                @DeletedUserId
+                0,
+                NULL,
+                NULL
             );
 
             SELECT CAST(SCOPE_IDENTITY() as int);";
@@ -97,10 +101,10 @@ namespace MeterInspectionDB
                 ISSync = @ISSync,
                 CompanySectorDept_Level = @CompanySectorDept_Level,
                 UserId = @UserId,
-                IsDeleted = @IsDeleted,
-                DeletedDate = @DeletedDate,
-                DeletedUserId = @DeletedUserId
-            WHERE Id = @Id";
+                IsDeleted = 0,
+                DeletedDate = NULL,
+                DeletedUserId = NULL
+            WHERE Id = @Id  and IsDeleted = 0";
 
             var rows = await _db.ExecuteAsync(sql, model);
 
@@ -113,13 +117,23 @@ namespace MeterInspectionDB
         }
 
         // Delete
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id, int? deletedUserId = null)
         {
             string sql = @"
-            DELETE FROM [dbo].[MaintenanceRecord]
-            WHERE Id = @Id";
+            UPDATE [dbo].[MaintenanceRecord]
+            SET 
+                IsDeleted = 1,
+                DeletedDate = GETDATE(),
+                DeletedUserId = @DeletedUserId
+            WHERE Id = @Id AND IsDeleted = 0";
 
-            return await _db.ExecuteAsync(sql, new { Id = id }) > 0;
+            var rows = await _db.ExecuteAsync(sql, new
+            {
+                Id = id,
+                DeletedUserId = deletedUserId
+            });
+
+            return rows > 0;
         }
     }
 }
