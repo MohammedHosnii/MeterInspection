@@ -1,4 +1,4 @@
-﻿# Visual Studio
+# Visual Studio
 .vs/
 *.user
 *.suo
@@ -15,8 +15,7 @@ obj/
 Debug/
 Release/
 
-# Rider / other IDEs (optional)
-.idea/
-*.DotSettings.user
-/MeterInspectionAPI/dotnet-tools.json
+/.vs
+/MeterInspectionAPI/bin/Debug/net8.0
 /.gitignore
+/MeterInspectionAPI/dotnet-tools.json
