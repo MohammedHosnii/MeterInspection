@@ -1,6 +1,20 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+# Visual Studio
+.vs/
+*.user
+*.suo
 
-/.vs
-/MeterInspectionAPI/bin/Debug/net8.0
+# Build results
+bin/
+obj/
+
+# .NET
+**/bin/
+**/obj/
+
+# Build configurations (optional but useful)
+Debug/
+Release/
+
+# Rider / other IDEs (optional)
+.idea/
+*.DotSettings.user
