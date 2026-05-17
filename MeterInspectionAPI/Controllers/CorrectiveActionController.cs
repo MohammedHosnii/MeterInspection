@@ -145,9 +145,37 @@ namespace MeterInspectionAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _repo.DeleteAsync(id);
+           
+            var res = new ApiResponse<CorrectiveAction>();
 
-            return result ? Ok() : NotFound();
+            try
+            {
+                var result = await _repo.DeleteAsync(id);
+
+                if (!result)
+                {
+                    res.Message = "غير موجود";
+                    res.StatusCode = HttpStatusCode.BadRequest;
+                    res.Succeeded = false;
+
+                    return BadRequest(res);
+                }
+
+                res.Data = null;
+                res.Message = "تم الحذف بنجاح";
+                res.StatusCode = HttpStatusCode.OK;
+                res.Succeeded = true;
+
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                res.Message = ex.Message;
+                res.StatusCode = HttpStatusCode.BadRequest;
+                res.Succeeded = false;
+
+                return BadRequest(res);
+            }
         }
     }
 }
