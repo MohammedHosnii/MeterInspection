@@ -18,3 +18,5 @@ Release/
 # Rider / other IDEs (optional)
 .idea/
 *.DotSettings.user
+/MeterInspectionAPI/dotnet-tools.json
+/.gitignore
