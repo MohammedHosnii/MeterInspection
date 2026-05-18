@@ -11,6 +11,7 @@ namespace MeterInspectionDB.Model
         public int Id { get; set; }
         public int MaintenanceRecord_id { get; set; }
         public long MeterNumber { get; set; }
+        public int MeterType_id { get; set; }
         public int TestResultCode { get; set; }
         public long CorrectiveActionCode { get; set; }
         public int ErrorNumber { get; set; }

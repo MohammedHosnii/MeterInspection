@@ -54,6 +54,7 @@ namespace MeterInspectionDB
         (
             MaintenanceRecord_id,
             MeterNumber,
+            MeterType_id,
             TestResultCode,
             CorrectiveActionCode,
             ErrorNumber,
@@ -69,6 +70,7 @@ namespace MeterInspectionDB
         (
             @MaintenanceRecord_id,
             @MeterNumber,
+            @MeterType_id,
             @TestResultCode,
             @CorrectiveActionCode,
             @ErrorNumber,
@@ -96,6 +98,7 @@ namespace MeterInspectionDB
         SET
             MaintenanceRecord_id = @MaintenanceRecord_ids,
             MeterNumber = @MeterNumber,
+            MeterType_id=@MeterType_id,
             TestResultCode = @TestResultCode,
             CorrectiveActionCode = @CorrectiveActionCode,
             ErrorNumber = @ErrorNumber,
