@@ -15,6 +15,7 @@ obj/
 Debug/
 Release/
 
-# Rider / other IDEs (optional)
-.idea/
-*.DotSettings.user
+/.vs
+/MeterInspectionAPI/bin/Debug/net8.0
+/.gitignore
+/MeterInspectionAPI/dotnet-tools.json
