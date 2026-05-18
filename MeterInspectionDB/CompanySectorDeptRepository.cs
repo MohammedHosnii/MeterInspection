@@ -55,6 +55,7 @@ namespace MeterInspectionDB
 
         }
 
+
         public async Task<IEnumerable<CompanySectorDept>> GetALLDepartments(int ParentId)
         {
             string sql = @"SELECT [Id] 
