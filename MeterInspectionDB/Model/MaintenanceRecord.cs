@@ -17,10 +17,10 @@ namespace MeterInspectionDB.Model
         public int RepairedMetersCount { get; set; }
         public int RetiredMetersCount { get; set; }
         public long MaintenanceRecordCode { get; set; }
-        public bool ISSync { get; set; }
+        public bool ISSync { get; set; } = false;
         public int CompanySectorDept_Level { get; set; }
         public int UserId { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
         public DateTime? DeletedDate { get; set; }
         public int? DeletedUserId { get; set; }
     }

@@ -156,13 +156,13 @@ namespace MeterInspectionAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id ,int userID)
         {
             var res = new ApiResponse<MaintenanceRecord>();
 
             try
             {
-                var result = await _repo.DeleteAsync(id);
+                var result = await _repo.DeleteAsync(id, userID);
 
                 if (!result)
                 {

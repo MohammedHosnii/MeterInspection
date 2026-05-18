@@ -18,6 +18,11 @@ namespace MeterInspectionDB
             services.AddScoped<CompanySectorDeptRepository>();
             services.AddScoped<TestResultRepository>();
             services.AddScoped<UserRepository>();
+            services.AddScoped<ErrorRepository>();
+            services.AddScoped<MaintenanceRecordRepository>();
+            services.AddScoped<MaintenanceRecordDetailRepository>();
+            services.AddScoped<MeterTypeRepository>();
+            services.AddScoped<ReportsRepository>();
 
             return services;
         }

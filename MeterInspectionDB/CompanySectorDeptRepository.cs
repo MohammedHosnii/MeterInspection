@@ -36,6 +36,7 @@ namespace MeterInspectionDB
         public async Task<IEnumerable<CompanySectorDept>> GetALLCompany()
         {
             string sql = @"SELECT [Id] 
+            ,[CompanySectorDeptCode]
             ,[CompanySectorDeptName] 
             FROM [dbo].[CompanySectorDept]
             WHERE CompanySectorDept_Level = 1";
@@ -45,6 +46,7 @@ namespace MeterInspectionDB
         public async Task<IEnumerable<CompanySectorDept>> GetALLSectors(int ParentId)
         {
             string sql = @"SELECT [Id] 
+            ,[CompanySectorDeptCode]
             ,[CompanySectorDeptName] 
             FROM [dbo].[CompanySectorDept]
             WHERE ParentId = @ParentId and  CompanySectorDept_Level = 2";
@@ -56,6 +58,7 @@ namespace MeterInspectionDB
         public async Task<IEnumerable<CompanySectorDept>> GetALLDepartments(int ParentId)
         {
             string sql = @"SELECT [Id] 
+            ,[CompanySectorDeptCode]
             ,[CompanySectorDeptName] 
             FROM [dbo].[CompanySectorDept]
             WHERE ParentId = @ParentId and  CompanySectorDept_Level = 3";

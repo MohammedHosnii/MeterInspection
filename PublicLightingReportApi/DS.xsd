@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MaintenanceRecord" msprop:Generator_RowClassName="MaintenanceRecordRow" msprop:Generator_RowEvHandlerName="MaintenanceRecordRowChangeEventHandler" msprop:Generator_RowDeletedName="MaintenanceRecordRowDeleted" msprop:Generator_RowDeletingName="MaintenanceRecordRowDeleting" msprop:Generator_RowEvArgName="MaintenanceRecordRowChangeEvent" msprop:Generator_TablePropName="MaintenanceRecord" msprop:Generator_RowChangedName="MaintenanceRecordRowChanged" msprop:Generator_UserTableName="MaintenanceRecord" msprop:Generator_RowChangingName="MaintenanceRecordRowChanging" msprop:Generator_TableClassName="MaintenanceRecordDataTable" msprop:Generator_TableVarName="tableMaintenanceRecord">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaintenanceRecordDate" msprop:Generator_UserColumnName="MaintenanceRecordDate" msprop:Generator_ColumnPropNameInTable="MaintenanceRecordDateColumn" msprop:Generator_ColumnPropNameInRow="MaintenanceRecordDate" msprop:Generator_ColumnVarNameInTable="columnMaintenanceRecordDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CompanySectorDept" msprop:Generator_UserColumnName="CompanySectorDept" msprop:Generator_ColumnPropNameInTable="CompanySectorDeptColumn" msprop:Generator_ColumnPropNameInRow="CompanySectorDept" msprop:Generator_ColumnVarNameInTable="columnCompanySectorDept" type="xs:string" minOccurs="0" />
+              <xs:element name="LabCenter" msprop:Generator_UserColumnName="LabCenter" msprop:Generator_ColumnPropNameInTable="LabCenterColumn" msprop:Generator_ColumnPropNameInRow="LabCenter" msprop:Generator_ColumnVarNameInTable="columnLabCenter" type="xs:string" minOccurs="0" />
+              <xs:element name="MeterCount" msprop:Generator_UserColumnName="MeterCount" msprop:Generator_ColumnPropNameInTable="MeterCountColumn" msprop:Generator_ColumnPropNameInRow="MeterCount" msprop:Generator_ColumnVarNameInTable="columnMeterCount" type="xs:int" minOccurs="0" />
+              <xs:element name="WorkingMetersCount" msprop:Generator_UserColumnName="WorkingMetersCount" msprop:Generator_ColumnPropNameInTable="WorkingMetersCountColumn" msprop:Generator_ColumnPropNameInRow="WorkingMetersCount" msprop:Generator_ColumnVarNameInTable="columnWorkingMetersCount" type="xs:int" minOccurs="0" />
+              <xs:element name="RepairedMetersCount" msprop:Generator_UserColumnName="RepairedMetersCount" msprop:Generator_ColumnPropNameInTable="RepairedMetersCountColumn" msprop:Generator_ColumnPropNameInRow="RepairedMetersCount" msprop:Generator_ColumnVarNameInTable="columnRepairedMetersCount" type="xs:int" minOccurs="0" />
+              <xs:element name="RetiredMetersCount" msprop:Generator_UserColumnName="RetiredMetersCount" msprop:Generator_ColumnPropNameInTable="RetiredMetersCountColumn" msprop:Generator_ColumnPropNameInRow="RetiredMetersCount" msprop:Generator_ColumnVarNameInTable="columnRetiredMetersCount" type="xs:int" minOccurs="0" />
+              <xs:element name="MaintenanceRecordCode" msprop:Generator_UserColumnName="MaintenanceRecordCode" msprop:Generator_ColumnPropNameInTable="MaintenanceRecordCodeColumn" msprop:Generator_ColumnPropNameInRow="MaintenanceRecordCode" msprop:Generator_ColumnVarNameInTable="columnMaintenanceRecordCode" type="xs:long" minOccurs="0" />
+              <xs:element name="ISSync" msprop:Generator_UserColumnName="ISSync" msprop:Generator_ColumnPropNameInTable="ISSyncColumn" msprop:Generator_ColumnPropNameInRow="ISSync" msprop:Generator_ColumnVarNameInTable="columnISSync" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CompanySectorDept_Level" msprop:Generator_UserColumnName="CompanySectorDept_Level" msprop:Generator_ColumnPropNameInTable="CompanySectorDept_LevelColumn" msprop:Generator_ColumnPropNameInRow="CompanySectorDept_Level" msprop:Generator_ColumnVarNameInTable="columnCompanySectorDept_Level" type="xs:string" minOccurs="0" />
+              <xs:element name="User" msprop:Generator_UserColumnName="User" msprop:Generator_ColumnPropNameInTable="UserColumn" msprop:Generator_ColumnPropNameInRow="User" msprop:Generator_ColumnVarNameInTable="columnUser" type="xs:string" minOccurs="0" />
+              <xs:element name="MeterNumber" msprop:Generator_UserColumnName="MeterNumber" msprop:Generator_ColumnPropNameInTable="MeterNumberColumn" msprop:Generator_ColumnPropNameInRow="MeterNumber" msprop:Generator_ColumnVarNameInTable="columnMeterNumber" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TestResult" msprop:Generator_UserColumnName="TestResult" msprop:Generator_ColumnPropNameInTable="TestResultColumn" msprop:Generator_ColumnPropNameInRow="TestResult" msprop:Generator_ColumnVarNameInTable="columnTestResult" type="xs:string" minOccurs="0" />
+              <xs:element name="CorrectiveAction" msprop:Generator_UserColumnName="CorrectiveAction" msprop:Generator_ColumnPropNameInTable="CorrectiveActionColumn" msprop:Generator_ColumnPropNameInRow="CorrectiveAction" msprop:Generator_ColumnVarNameInTable="columnCorrectiveAction" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" msprop:Generator_UserColumnName="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="MeterType" msprop:Generator_ColumnPropNameInRow="MeterType" msprop:Generator_ColumnPropNameInTable="MeterTypeColumn" msprop:Generator_ColumnVarNameInTable="columnMeterType" msprop:Generator_UserColumnName="MeterType" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
